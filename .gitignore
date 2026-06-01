@@ -1,0 +1,28 @@
+# Environment
+.env
+
+# Generated blog output (stored in BLOGS_DIR on EC2, not in repo)
+*.md
+!README.md
+HITL_IMPLEMENTATION.md
+images/
+
+# Claude Code internal settings
+.claude/
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+venv/
+.venv/
+env/
+
+# Local checkpoints (only used when DATABASE_URI is not set)
+checkpoints.db
+
+# OS
+.DS_Store
+Thumbs.db

@@ -1,0 +1,24 @@
+# Blog Writing Agent — direct dependencies
+# Versions pinned from local dev environment (2026-06-01)
+
+# LangGraph + LangChain
+langgraph==1.1.10
+langgraph-checkpoint-postgres==3.0.5
+langchain-openai==1.2.1
+langchain-core==1.3.2
+langchain-tavily==0.2.18
+
+# PostgreSQL (Supabase checkpointing)
+psycopg[binary,pool]==3.3.4
+
+# LLM clients
+openai==2.32.0
+google-genai==1.73.1
+
+# Streamlit UI
+streamlit==1.57.0
+pandas==3.0.2
+
+# Utilities
+pydantic==2.13.3
+python-dotenv==1.2.2
