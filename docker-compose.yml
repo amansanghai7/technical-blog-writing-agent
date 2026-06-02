@@ -1,0 +1,22 @@
+services:
+  blog-agent:
+    build: .
+    image: blog-writing-agent:latest
+    container_name: blog-agent
+    restart: unless-stopped
+    ports:
+      # Only expose to localhost — Nginx proxies from the outside world.
+      # Port 8501 is never reachable directly from the internet.
+      - "127.0.0.1:8501:8501"
+    env_file:
+      - .env                  # all API keys loaded from .env
+    environment:
+      - BLOGS_DIR=/blogs      # always /blogs inside the container regardless of .env
+    volumes:
+      - blogs_data:/blogs     # named volume — blogs survive container rebuilds and restarts
+
+volumes:
+  blogs_data:
+    # Docker manages the volume at /var/lib/docker/volumes/<project>_blogs_data/_data
+    # To inspect on EC2: docker compose exec blog-agent ls /blogs
+    # To copy out:       docker cp blog-agent:/blogs/myblog.md .
